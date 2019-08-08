@@ -12,9 +12,27 @@ namespace AnonymousTypes
         {
             Console.WriteLine("***** Fun with Anonymous Types *****\n");
             var myCar = new { Color = "Bright Pink", Make = "Saab", CurrentSpeed = 55 };
+            var secondCar = new { Color = "Bright Pink", Make = "Saab", CurrentSpeed = 55 };
             Console.WriteLine("My car is a {0} {1}.", myCar.Color, myCar.Make);
             BuildAnonType("BMW", "Black", 90);
             ReflectOverAnonymous(myCar);
+
+            if (myCar.Equals(secondCar))
+            {
+                Console.WriteLine("Same anonymous object!");
+            }
+            else
+            {
+                Console.WriteLine("Not the same anonymous object!");
+            }
+            if(myCar == secondCar)
+                Console.WriteLine("Same anonymous object!");
+            else
+                Console.WriteLine("Not the same objrct");
+            if(myCar.GetType().Name == secondCar.GetType().Name)
+                Console.WriteLine("We are both the same type!");
+            else
+                Console.WriteLine("We are different types!");
         }
         static void BuildAnonType(string make, string color, int currSp)
         {
